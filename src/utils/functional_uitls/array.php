@@ -10,7 +10,8 @@
 
 if (!!!function_exists('fp_head')) {
     function fp_head($list){
-        return $list[0];
+        if(isset($list[0])) return $list[0];
+        return null;
     }
 }
 

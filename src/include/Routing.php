@@ -4,24 +4,27 @@ namespace cms_less\include;
 
 class Routing{
 
-    static function register_link($route_map,$link,$element){
+    private $route_map = [];
 
-        $link_head = $link[0];
-        $link_tail = array_splice($link,1);
+    function __construct($route_map = []) {
+        $this->route_map = $route_map;
+    }
 
-        // Recurstion end-case
-        if (count($link) == 1){
-            $route_map[$link_head] = $element;
-            return $route_map;
+    function register_link($link,$callback){
+        $this->route_map = array_append_deep($this->route_map,explode("/",$link),$callback);
+    }
+
+    function route(){
+
+        $url = $_SERVER['REQUEST_URI'];
+
+        $url_parts = explode("/",$url);
+
+        $callback = array_get_deep($this->route_map,$url_parts);
+
+        if($callback){
+            $callback();
         }
-
-        if(!!!array_key_exists($link_head,$route_map)){
-            $route_map[$link_head] = static::register_link([],$link_tail,$element);
-
-            return $route_map;
-        }
-        $route_map[$link_head] = static::register_link($route_map[$link_head],array_splice($path,1),$element);
-        return $route_map;
     }
 
 }
