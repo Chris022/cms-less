@@ -1,6 +1,6 @@
 <?php
 
-namespace cms_less\inc;
+namespace cms_less\include;
 
 class Auth{
 
