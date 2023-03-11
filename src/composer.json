@@ -14,9 +14,6 @@
         "psr-4": {
             "cms_less\\": ""
         }
-    },
-    "config": {
-        "vendor-dir": "./src/vendor"
     }
     
 }

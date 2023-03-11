@@ -1,8 +1,12 @@
 <?php 
 
-//Start by including our autoloader
-include_once "./autoload.php";
+//Start by including the autoloader
+require "vendor/autoload.php";
 
-use cms_less\inc\Auth;
+use cms_less\inc\Routing;
 
-Auth::login();
+$route_map = [];
+
+Routing::register_link($route_map,["hello","world"],"world.php");
+print_r($route_map);
+//Routing::register_link("/hello/chris","chris.php");
