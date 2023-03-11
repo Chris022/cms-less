@@ -1,0 +1,22 @@
+{
+    "name": "cms-less/core",
+    "description": "A super simple CMS",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christoph Weberbauer"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "cms_less\\": ""
+        }
+    },
+    "config": {
+        "vendor-dir": "./src/vendor"
+    }
+    
+}

@@ -1,7 +1,7 @@
 services:
   apache:
     container_name: cms-less-apache
-    image: php:8.1.16-apache
+    image: php:8.2-apache
     ports:
       - "9090:80"
     networks:
